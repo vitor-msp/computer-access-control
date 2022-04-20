@@ -1,0 +1,6 @@
+export enum Departments {
+  COMPRAS = "COMPRAS",
+  FINANCEIRO = "FINANCEIRO",
+  LOGISTICA = "LOGISTICA",
+  INFORMATICA = "INFORMATICA"
+}
