@@ -5,7 +5,7 @@ export class GetComputersUseCase {
   constructor(private computersRepository: IComputersRepository) {}
 
   async execute(): Promise<Computer[]> {
-    const computers = await this.computersRepository.getAll();
+    const computers: Computer[] = await this.computersRepository.getAll();
     return computers;
   }
 }

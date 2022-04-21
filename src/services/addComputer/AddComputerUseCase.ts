@@ -7,7 +7,7 @@ export class AddComputerUseCase {
 
   async execute(computerDTO: IAddComputerDTO): Promise<void> {
     const { hostname, department } = computerDTO;
-    const computerThatExists = await this.computersRepository.findByHostname(
+    const computerThatExists: Computer | undefined = await this.computersRepository.findByHostname(
       hostname
     );
 

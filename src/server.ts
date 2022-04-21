@@ -1,5 +1,7 @@
-import app from "./app";
+import { AppController } from "./app";
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log(`Api stated on port ${port}!`));
+const app = new AppController();
+
+app.express.listen(port, () => console.log(`Api stated on port ${port}!`));

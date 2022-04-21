@@ -12,10 +12,10 @@ export class DailyJourney {
   }
 
   private setDepartureTime(departureTime: Date): void {
-    if (departureTime > this.entryTime) {
-      this.departureTime = departureTime;
+    if (departureTime <= this.entryTime) {
+      throw new Error(`Departure time needs be after entry time!`);
     }
-    throw new Error(`Departure time needs be after entry time!`);
+    this.departureTime = departureTime;
   }
 
   getDayOfWeek(): DayOfWeek {
