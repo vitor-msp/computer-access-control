@@ -1,15 +1,8 @@
 import express from "express";
 import cors from "cors";
+import mongoose from "mongoose";
 
 import routes from "./routes";
-
-// const app = express();
-
-// app.use(cors())
-// app.use(express.json())
-// app.use(routes);
-
-// export default app;
 
 export class AppController {
   public express: express.Application;
@@ -17,12 +10,21 @@ export class AppController {
   constructor() {
     this.express = express();
     this.middlewares();
+    this.database()
     this.routes();
   }
 
   middlewares(): void {
     this.express.use(cors());
     this.express.use(express.json());
+  }
+
+  database(): void {
+    mongoose.connect("mongodb://localhost:27017/computer-access-control", {
+      // useNewUrlParser: true
+    }, () => {
+      console.log("Connected to MongoDB!")
+    })
   }
 
   routes(): void {
