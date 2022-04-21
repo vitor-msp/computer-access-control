@@ -23,10 +23,16 @@ export class SetWeeklyJourneyToUserUseCase {
     const journeyToUser = new WeeklyJourney();
 
     for (const dailyJourney of weeklyJourney) {
+      const {dayOfWeek, entryTime, departureTime} = dailyJourney;
+      const entryTimeToSet = new Date();
+      entryTimeToSet.setTime(entryTime);
+      const departureTimeToSet = new Date();
+      departureTimeToSet.setTime(departureTime);
+
       journeyToUser.addDay(
-        ConvertDayOfWeek.stringToEnum(dailyJourney.dayOfWeek),
-        dailyJourney.entryTime,
-        dailyJourney.departureTime
+        ConvertDayOfWeek.stringToEnum(dayOfWeek),
+        entryTimeToSet,
+        departureTimeToSet
       );
     }
 

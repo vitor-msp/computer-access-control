@@ -12,21 +12,21 @@ beforeAll(() => {
   entryTime.setMinutes(0);
 
   let departureTime = new Date();
-  departureTime.setHours(8);
-  departureTime.setMinutes(0);
+  departureTime.setHours(7);
+  departureTime.setMinutes(59);
 
   req = {
     userId: "1",
     weeklyJourney: [
       {
         dayOfWeek: "MONDAY",
-        entryTime,
-        departureTime,
+        entryTime: entryTime.getTime(),
+        departureTime: departureTime.getTime(),
       },
       {
         dayOfWeek: "TUESDAY",
-        entryTime,
-        departureTime,
+        entryTime: entryTime.getTime(),
+        departureTime: departureTime.getTime(),
       },
     ],
   };
@@ -68,13 +68,13 @@ describe("Set weekly journey to user in memory use case", () => {
       weeklyJourney: [
         {
           dayOfWeek: "MONDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "MONDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
       ],
     };
@@ -99,38 +99,38 @@ describe("Set weekly journey to user in memory use case", () => {
       weeklyJourney: [
         {
           dayOfWeek: "SUNDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "MONDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "TUESDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "WEDNESDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "THURSDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "FRIDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "SATURDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         }
       ],
     };
@@ -155,13 +155,13 @@ describe("Set weekly journey to user in memory use case", () => {
       weeklyJourney: [
         {
           dayOfWeek: "MONDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
         {
           dayOfWeek: "TUESDAY",
-          entryTime,
-          departureTime,
+          entryTime: entryTime.getTime(),
+          departureTime: departureTime.getTime(),
         },
       ],
     };

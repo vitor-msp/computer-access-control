@@ -5,6 +5,7 @@ import { addUserController } from "./services/addUser";
 import { getUserDataController } from "./services/getUserData";
 import { addComputerToUserController } from "./services/addComputerToUser";
 import { setWeeklyJourneyToUserController } from "./services/setWeeklyJourneyToUser";
+import { canUserAccessComputerController } from "./services/canUserAccessComputer";
 
 const router = Router();
 
@@ -30,6 +31,10 @@ router.put("/users/add-computer", (req, res) => {
 
 router.put("/users/set-weekly-journey", (req, res) => {
   setWeeklyJourneyToUserController.handle(req, res);
+});
+
+router.get("/access", (req, res) => {
+  canUserAccessComputerController.handle(req, res);
 });
 
 export default router;
