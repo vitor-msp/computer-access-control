@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/model/entities/WeeklyJourney.ts</title>
+    <title>Code coverage report for src/services/setWeeklyJourneyToUser/SetWeeklyJourneyToUserUseCase.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/model/entities</a> WeeklyJourney.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/services/setWeeklyJourneyToUser</a> SetWeeklyJourneyToUserUseCase.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
@@ -94,7 +94,13 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -103,57 +109,69 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { DayOfWeek } from "../enums/DayOfWeek";
-import { DailyJourney } from "./DailyJourney";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { User } from "../../model/entities/User";
+import { WeeklyJourney } from "../../model/entities/WeeklyJourney";
+import { DayOfWeek } from "../../model/enums/DayOfWeek";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { ConvertDayOfWeek } from "../../utils/ConvertDayOfWeek";
+import { ISetWeeklyJourneyToUserDTO } from "./ISetWeeklyJourneyToUserDTO";
 &nbsp;
-export class WeeklyJourney {
-  private workDays: DailyJourney[] = [];
+export class SetWeeklyJourneyToUserUseCase {
+  constructor(private usersRepository: IUsersRepository) {}
 &nbsp;
-  constructor() {}
+  async execute(journeyToSetDTO: ISetWeeklyJourneyToUserDTO): Promise&lt;void&gt; {
+    const { userId, weeklyJourney } = journeyToSetDTO;
 &nbsp;
-  public addDay(
-    dayOfWeek: DayOfWeek,
-    entryTime: Date,
-    departureTime: Date
-  ): void {
-    const dailyJourney = new DailyJourney(dayOfWeek, entryTime, departureTime);
-    if (this.isDayAdded(dailyJourney)) {
-      throw new Error(`Day already add for this week!`);
+    const user: User | undefined = await this.usersRepository.findById(userId);
+    if (!user) {
+      throw new Error(`User not exists!`);
     }
-    this.workDays.push(dailyJourney);
-  }
 &nbsp;
-  private isDayAdded(dailyJourney: DailyJourney): boolean {
-    const dayAlreadyAdded = this.workDays.find(
-      (d) =&gt; d.getDayOfWeek() === dailyJourney.getDayOfWeek()
-    );
-    return dayAlreadyAdded === undefined ? false : true;
-  }
+    if (weeklyJourney.length &gt; 6) {
+      throw new Error(`Cannot set more than 6 days to work journey!`);
+    }
 &nbsp;
-  public getWorkDays(): DailyJourney[] {
-    return this.workDays;
+    const journeyToUser = new WeeklyJourney();
+&nbsp;
+    for (const dailyJourney of weeklyJourney) {
+      journeyToUser.addDay(
+        ConvertDayOfWeek.stringToEnum(dailyJourney.dayOfWeek),
+        dailyJourney.entryTime,
+        dailyJourney.departureTime
+      );
+    }
+&nbsp;
+    user.setWeeklyJourney(journeyToUser);
+&nbsp;
+    this.usersRepository.update(user);
   }
 }
 &nbsp;</pre></td></tr></table></pre>

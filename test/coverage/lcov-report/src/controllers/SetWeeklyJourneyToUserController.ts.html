@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/controllers/AddComputerToUserController.ts</title>
+    <title>Code coverage report for src/controllers/SetWeeklyJourneyToUserController.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/controllers</a> AddComputerToUserController.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/controllers</a> SetWeeklyJourneyToUserController.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -93,35 +93,35 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from "express";
-import { AddComputerToUserUseCase } from "../services/addComputerToUser/AddComputerToUserUseCase";
+import { SetWeeklyJourneyToUserUseCase } from "../services/setWeeklyJourneyToUser/SetWeeklyJourneyToUserUseCase";
 &nbsp;
-export class AddComputerToUserController {
-  constructor(private addComputerToUserUseCase: AddComputerToUserUseCase) {}
+export class SetWeeklyJourneyToUserController {
+  constructor(private setWeeklyJourneyToUser: SetWeeklyJourneyToUserUseCase) {}
 &nbsp;
   async handle(req: Request, res: Response): Promise&lt;Response&gt; {
-    const { userId, hostname } = req.body;
+    const { userId, weeklyJourney } = req.body;
 &nbsp;
     try {
-      await this.addComputerToUserUseCase.execute({
+      await this.setWeeklyJourneyToUser.execute({
         userId,
-        hostname,
+        weeklyJourney,
       });
 &nbsp;
       return res.status(200).send();
