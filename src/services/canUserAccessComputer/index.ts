@@ -1,11 +1,11 @@
-import { usersRepositoryMemory } from "../../repositories/implementations/UsersRepositoryMemory";
 import { CanUserAccessComputerUseCase } from "./CanUserAccessComputerUseCase";
-import { computersRepositoryMemory } from "../../repositories/implementations/ComputersRepositoryMemory";
 import { CanUserAccessComputerController } from "../../controllers/CanUserAccessComputerController";
+import { usersRepositoryMongo } from "../../repositories/implementations/UsersRepositoryMongo";
+import { computersRepositoryMongo } from "../../repositories/implementations/ComputersRepositoryMongo";
 
 const canUserAccessComputerUseCase = new CanUserAccessComputerUseCase(
-  usersRepositoryMemory,
-  computersRepositoryMemory
+  usersRepositoryMongo,
+  computersRepositoryMongo
 );
 const canUserAccessComputerController = new CanUserAccessComputerController(
   canUserAccessComputerUseCase

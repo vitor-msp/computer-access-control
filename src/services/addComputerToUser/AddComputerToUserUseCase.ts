@@ -17,8 +17,9 @@ export class AddComputerToUserUseCase {
     if (!user) {
       throw new Error(`User not exists!`);
     }
-    
-    const computer: Computer | undefined = await this.computersRepository.findByHostname(hostname);
+
+    const computer: Computer | undefined =
+      await this.computersRepository.findByHostname(hostname);
     if (!computer) {
       throw new Error(`Computer not exists!`);
     }

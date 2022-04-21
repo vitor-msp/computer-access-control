@@ -4,7 +4,7 @@ import { IComputer } from "../../interfaces/IComputer";
 
 export interface IComputerModel extends IComputer, Document {}
 
-const ComputerSchema = new Schema(
+export const ComputerSchema = new Schema(
   {
     hostname: {
       type: String,

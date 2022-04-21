@@ -1,7 +1,9 @@
+import { IComputer } from "./IComputer";
+import { IDailyJourney } from "./IDailyJourney";
+
 export interface IUser {
   id?: string;
   name: string;
-  weeklyJourney: [
-    { dayOfWeek: string; entryTime: number; departureTime: number }
-  ];
+  computers?: IComputer[];
+  weeklyJourney?: IDailyJourney[];
 }

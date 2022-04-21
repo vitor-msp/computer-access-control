@@ -1,12 +1,14 @@
 import { Document, Schema, Model, model } from "mongoose";
 
 import { IUser } from "../../interfaces/IUser";
+import { ComputerSchema } from "./ComputerSchema";
+import { DailyJourneySchema } from "./DailyJourneySchema";
 
 export interface IUserModel extends IUser, Document {
   id?: any;
 }
 
-const UserSchema = new Schema(
+export const UserSchema = new Schema(
   {
     id: {
       type: String,
@@ -16,9 +18,14 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    //     weeklyJourney: [
-    //     { dayOfWeek: string; entryTime: number; departureTime: number }
-    //   ];
+    computers: {
+      type: [ComputerSchema],
+      required: false
+    },
+    weeklyJourney: {
+      type: [DailyJourneySchema],
+      required: false
+    },
   },
   {
     timestamps: true,

@@ -1,11 +1,11 @@
+import { computersRepositoryMemory } from "../../repositories/implementations/old/ComputersRepositoryMemory";
+import { usersRepositoryMemory } from "../../repositories/implementations/UsersRepositoryMemory";
 import { AddComputerToUserUseCase } from "./AddComputerToUserUseCase";
 import { AddComputerToUserController } from "../../controllers/AddComputerToUserController";
-import { usersRepositoryMongo } from "../../repositories/implementations/UsersRepositoryMongo";
-import { computersRepositoryMongo } from "../../repositories/implementations/ComputersRepositoryMongo";
 
 const addComputerToUserUseCase = new AddComputerToUserUseCase(
-  usersRepositoryMongo,
-  computersRepositoryMongo
+  usersRepositoryMemory,
+  computersRepositoryMemory
 );
 const addComputerToUserController = new AddComputerToUserController(
   addComputerToUserUseCase

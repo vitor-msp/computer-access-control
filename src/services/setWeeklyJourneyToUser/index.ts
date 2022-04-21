@@ -1,9 +1,9 @@
-import { usersRepositoryMemory } from "../../repositories/implementations/UsersRepositoryMemory";
 import { SetWeeklyJourneyToUserUseCase } from "./SetWeeklyJourneyToUserUseCase";
 import { SetWeeklyJourneyToUserController } from "../../controllers/SetWeeklyJourneyToUserController";
+import { usersRepositoryMongo } from "../../repositories/implementations/UsersRepositoryMongo";
 
 const setWeeklyJourneyToUserUseCase = new SetWeeklyJourneyToUserUseCase(
-  usersRepositoryMemory
+  usersRepositoryMongo
 );
 const setWeeklyJourneyToUserController = new SetWeeklyJourneyToUserController(
   setWeeklyJourneyToUserUseCase
