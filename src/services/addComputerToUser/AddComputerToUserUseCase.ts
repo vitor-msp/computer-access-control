@@ -13,15 +13,12 @@ export class AddComputerToUserUseCase {
   async execute(pcToUserDTO: IAddComputerToUserDTO): Promise<void> {
     const { userId, hostname } = pcToUserDTO;
 
-    console.log("pcToUserDTO", pcToUserDTO);
     const user: User | undefined = await this.usersRepository.findById(userId);
-    console.log("user", user);
     if (!user) {
       throw new Error(`User not exists!`);
     }
     
     const computer: Computer | undefined = await this.computersRepository.findByHostname(hostname);
-    console.log("computer", computer);
     if (!computer) {
       throw new Error(`Computer not exists!`);
     }

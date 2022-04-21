@@ -22,7 +22,15 @@ export class DailyJourney {
     return this.dayOfWeek;
   }
 
-  get(): string {
-    return `${this.getDayOfWeek()} ${this.entryTime} ${this.departureTime}`;
+  getEntryTime(): Date {
+    return this.entryTime;
   }
+
+  getDepartureTime(): Date | null {
+    return this.departureTime ?? null;
+  }
+
+  // get(): string {
+  //   return `${this.getDayOfWeek()} ${this.entryTime} ${this.departureTime}`;
+  // }
 }
