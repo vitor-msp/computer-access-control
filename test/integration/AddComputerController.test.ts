@@ -3,11 +3,12 @@ import request from "supertest";
 import { AppController } from "../../src/app";
 
 let app: express.Application
-beforeEach(() => {
+beforeAll(() => {
   app = new AppController().express;
 });
 
 describe("Add computer to memory use case", () => {
+
   it("should add some computers correcly", async () => {
     const res1 = await request(app).post("/computers").send({
       hostmane: "COM01",
@@ -23,11 +24,6 @@ describe("Add computer to memory use case", () => {
   });
 
   it("should not add same computer", async () => {
-    await request(app).post("/computers").send({
-      hostmane: "COM01",
-      department: "COMPRAS",
-    });
-
     const res = await request(app).post("/computers").send({
       hostmane: "COM01",
       department: "COMPRAS",

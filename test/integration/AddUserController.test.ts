@@ -3,7 +3,7 @@ import request from "supertest";
 import { AppController } from "../../src/app";
 
 let app: express.Application;
-beforeEach(() => {
+beforeAll(() => {
   app = new AppController().express;
 });
 
@@ -23,10 +23,6 @@ describe("Add user to memory use case", () => {
   });
 
   it("should not add same user", async () => {
-    await request(app).post("/users").send({
-      id: "1",
-      name: "Fulano",
-    });
 
     const res = await request(app).post("/users").send({
       id: "1",

@@ -3,7 +3,7 @@ import request from "supertest";
 import { AppController } from "../../src/app";
 
 let app: express.Application;
-beforeEach(() => {
+beforeAll(() => {
   app = new AppController().express;
 });
 

@@ -4,7 +4,7 @@ import { AppController } from "../../src/app";
 import { Computer } from "../../src/model/entities/Computer";
 
 let app: express.Application;
-beforeEach(() => {
+beforeAll(() => {
   app = new AppController().express;
 });
 
