@@ -46,7 +46,7 @@ describe("Weekly journey", () => {
 
     expect(() => {
       weeklyJourney.addDay(DayOfWeek.MONDAY, entryTime, departureTime);
-    }).toThrow(`Day already add for this week!`);
+    }).toThrow(`Duplicate day for this week!`);
     expect(weeklyJourney.getWorkDays().length).toBe(1);
   });
 });

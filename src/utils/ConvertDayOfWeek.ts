@@ -38,6 +38,40 @@ export abstract class ConvertDayOfWeek {
     return ret;
   }
 
-  // enumToString(value: string): DayOfWeek{
-  // }
+  public static numberToEnum(value: number): DayOfWeek {
+    let ret;
+    switch (value) {
+      case 0:
+        ret = DayOfWeek.SUNDAY;
+        break;
+
+      case 1:
+        ret = DayOfWeek.MONDAY;
+        break;
+
+      case 2:
+        ret = DayOfWeek.TUESDAY;
+        break;
+
+      case 3:
+        ret = DayOfWeek.WEDNESDAY;
+        break;
+
+      case 4:
+        ret = DayOfWeek.THURSDAY;
+        break;
+
+      case 5:
+        ret = DayOfWeek.FRIDAY;
+        break;
+
+      case 6:
+        ret = DayOfWeek.SATURDAY;
+        break;
+
+      default:
+        throw new Error(`Invalid day of week!`);
+    }
+    return ret;
+  }
 }

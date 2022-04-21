@@ -82,7 +82,7 @@ describe("Set weekly journey to user in memory use case", () => {
     const res = await request(app).put("/users/set-weekly-journey").send(req);
 
     expect(res.statusCode).toEqual(400);
-    expect(res.body.message).toEqual(`Day already add for this week!`);
+    expect(res.body.message).toEqual(`Duplicate day for this week!`);
   });
 
   it("should not set more than 6 days", async () => {

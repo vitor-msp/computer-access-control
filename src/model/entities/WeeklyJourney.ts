@@ -13,7 +13,7 @@ export class WeeklyJourney {
   ): void {
     const dailyJourney = new DailyJourney(dayOfWeek, entryTime, departureTime);
     if (this.isDayAdded(dailyJourney)) {
-      throw new Error(`Day already add for this week!`);
+      throw new Error(`Duplicate day for this week!`);
     }
     this.workDays.push(dailyJourney);
   }
