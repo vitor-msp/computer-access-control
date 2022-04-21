@@ -5,9 +5,9 @@ export class GetUserDataUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute(id: string): Promise<User | undefined> {
-    const user = await this.usersRepository.findById(id);
+    const user: User | undefined = await this.usersRepository.findById(id);
 
-    if (user === undefined) {
+    if (!user) {
       throw new Error(`User not exists!`)
     }
 
