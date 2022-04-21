@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Computer } from "../model/entities/Computer";
 import { GetComputersUseCase } from "../services/getComputers/GetComputersUseCase";
 
 export class GetComputersController {
@@ -6,7 +7,7 @@ export class GetComputersController {
 
   async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const computers = await this.getComputersUseCase.execute();
+      const computers: Computer[] = await this.getComputersUseCase.execute();
 
       return res.status(200).json(computers);
     } catch (error: any) {

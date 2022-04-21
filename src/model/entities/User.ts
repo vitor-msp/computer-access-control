@@ -8,8 +8,8 @@ export class User {
   private computers: Computer[] = [];
   private weeklyJourney: WeeklyJourney | null = null;
 
-  constructor(private name: string) {
-    this.id = uuidv4();
+  constructor(private name: string, id?: string) {
+    this.id = id ?? uuidv4();
   }
 
   getId(): string {

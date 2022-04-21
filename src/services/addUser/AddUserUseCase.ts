@@ -6,14 +6,18 @@ export class AddUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute(userDTO: IAddUserDTO): Promise<User> {
-    const { name, id } = userDTO;
-    const userThatExists = await this.usersRepository.findById(id!);
+    const { id, name } = userDTO;
 
-    if (userThatExists !== undefined) {
-      throw new Error(`User already exists!`);
+    if (id) {
+      const userThatExists: User | undefined =
+        await this.usersRepository.findById(id!);
+
+      if (userThatExists) {
+        throw new Error(`User already exists!`);
+      }
     }
 
-    const user = new User(name);
+    const user = new User(name, id);
 
     await this.usersRepository.add(user);
 

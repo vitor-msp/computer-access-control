@@ -11,7 +11,7 @@ export class AddComputerUseCase {
       hostname
     );
 
-    if (computerThatExists !== undefined) {
+    if (computerThatExists) {
       throw new Error(`Computer already exists!`);
     }
 
