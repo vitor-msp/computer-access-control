@@ -1,7 +1,6 @@
 import { Document, Schema, Model, model } from "mongoose";
 
 import { IUser } from "../../interfaces/IUser";
-import { ComputerSchema } from "./ComputerSchema";
 import { DailyJourneySchema } from "./DailyJourneySchema";
 
 export interface IUserModel extends IUser, Document {
@@ -19,12 +18,12 @@ export const UserSchema = new Schema(
       required: true,
     },
     computers: {
-      type: [ComputerSchema],
-      required: false
+      type: [Schema.Types.ObjectId],
+      required: false,
     },
     weeklyJourney: {
       type: [DailyJourneySchema],
-      required: false
+      required: false,
     },
   },
   {

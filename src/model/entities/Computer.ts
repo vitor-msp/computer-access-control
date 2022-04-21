@@ -1,7 +1,11 @@
 import { Departments } from "../enums/Departments";
 
 export class Computer {
-  constructor(private hostname: string, private department: Departments) {}
+  constructor(
+    private hostname: string,
+    private department: Departments,
+    private id?: string
+  ) {}
 
   getHostname(): string {
     return this.hostname;
@@ -9,5 +13,9 @@ export class Computer {
 
   getDepartment(): string {
     return this.department;
+  }
+
+  getId(): string | undefined {
+    return this.id;
   }
 }

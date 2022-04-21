@@ -1,8 +1,8 @@
-import { User } from "../../model/entities/User";
+import { IUser } from "../../interfaces/IUser";
 import { WeeklyJourney } from "../../model/entities/WeeklyJourney";
-import { DayOfWeek } from "../../model/enums/DayOfWeek";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { ConvertDayOfWeek } from "../../utils/ConvertDayOfWeek";
+import { GenerateWeeklyJourney } from "../../utils/GenerateWeeklyJourney";
+import { UserFromEntity } from "../../utils/UserFromEntity";
 import { ISetWeeklyJourneyToUserDTO } from "./ISetWeeklyJourneyToUserDTO";
 
 export class SetWeeklyJourneyToUserUseCase {
@@ -11,8 +11,10 @@ export class SetWeeklyJourneyToUserUseCase {
   async execute(journeyToSetDTO: ISetWeeklyJourneyToUserDTO): Promise<void> {
     const { userId, weeklyJourney } = journeyToSetDTO;
 
-    const user: User | undefined = await this.usersRepository.findById(userId);
-    if (!user) {
+    const userEnt: IUser | undefined = await this.usersRepository.findById(
+      userId
+    );
+    if (!userEnt) {
       throw new Error(`User not exists!`);
     }
 
@@ -20,21 +22,10 @@ export class SetWeeklyJourneyToUserUseCase {
       throw new Error(`Cannot set more than 6 days to work journey!`);
     }
 
-    const journeyToUser = new WeeklyJourney();
+    const journeyToUser: WeeklyJourney =
+      GenerateWeeklyJourney.fromDTO(weeklyJourney);
 
-    for (const dailyJourney of weeklyJourney) {
-      const {dayOfWeek, entryTime, departureTime} = dailyJourney;
-      const entryTimeToSet = new Date();
-      entryTimeToSet.setTime(entryTime);
-      const departureTimeToSet = new Date();
-      departureTimeToSet.setTime(departureTime);
-
-      journeyToUser.addDay(
-        ConvertDayOfWeek.stringToEnum(dayOfWeek),
-        entryTimeToSet,
-        departureTimeToSet
-      );
-    }
+    const user = UserFromEntity.of(userEnt);
 
     user.setWeeklyJourney(journeyToUser);
 

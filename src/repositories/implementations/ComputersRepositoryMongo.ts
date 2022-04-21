@@ -1,28 +1,31 @@
-import { ComputerModel } from "../../database/schemas/ComputerSchema";
+import {
+  ComputerModel,
+  IComputerModel,
+} from "../../database/schemas/ComputerSchema";
 import { IComputer } from "../../interfaces/IComputer";
 import { Computer } from "../../model/entities/Computer";
-import { ConvertDepartment } from "../../utils/ConvertDepartment";
+import { ComputerToEntity } from "../../utils/ComputerToEntity";
 import { IComputersRepository } from "../IComputersRepository";
 
 class ComputersRepositoryMongo implements IComputersRepository {
-  async findByHostname(hostname: string): Promise<Computer | undefined> {
-    const computerEnt: IComputer | null = await ComputerModel.findOne({
+  async findByHostname(hostname: string): Promise<IComputer | undefined> {
+    const computerModel: IComputerModel | null = await ComputerModel.findOne({
       hostname,
     });
 
-    if (!computerEnt) return undefined;
+    if (!computerModel) return undefined;
 
-    return new Computer(
-      computerEnt.hostname,
-      ConvertDepartment.stringToEnum(computerEnt.department)
-    );
+    const computerEnt: IComputer | null = {
+      id: computerModel._id,
+      hostname: computerModel.hostname,
+      department: computerModel.department,
+    };
+
+    return computerEnt;
   }
 
   async add(computer: Computer): Promise<void> {
-    const computerEnt: IComputer = {
-      hostname: computer.getHostname(),
-      department: computer.getDepartment(),
-    };
+    const computerEnt: IComputer = ComputerToEntity.of(computer);
 
     await ComputerModel.create(computerEnt);
   }
