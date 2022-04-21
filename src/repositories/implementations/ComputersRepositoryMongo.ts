@@ -1,4 +1,4 @@
-import { ComputerModel } from "../../database/schemas/Computer";
+import { ComputerModel } from "../../database/schemas/ComputerSchema";
 import { Computer } from "../../model/entities/Computer";
 import { IComputersRepository } from "../IComputersRepository";
 
