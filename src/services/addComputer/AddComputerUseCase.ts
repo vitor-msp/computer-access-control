@@ -1,6 +1,7 @@
 import { Computer } from "../../model/entities/Computer";
 import { IComputersRepository } from "../../repositories/IComputersRepository";
-import { IAddComputerDTO } from "./AddComputerDTO";
+import { ConvertDepartment } from "../../utils/ConvertDepartment";
+import { IAddComputerDTO } from "./IAddComputerDTO";
 
 export class AddComputerUseCase {
   constructor(private computersRepository: IComputersRepository) {}
@@ -15,7 +16,10 @@ export class AddComputerUseCase {
       throw new Error(`Computer already exists!`);
     }
 
-    const computer = new Computer(hostname, department);
+    const computer = new Computer(
+      hostname,
+      ConvertDepartment.stringToEnum(department)
+    );
 
     await this.computersRepository.add(computer);
   }

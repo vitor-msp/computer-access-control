@@ -110,7 +110,7 @@ describe("Can user access computer in memory use case", () => {
       hostname: "COM01",
       time: time.getTime(),
     });
-    console.log(res.body);
+
     expect(res.statusCode).toEqual(200);
     expect(res.body.canAccess).toEqual(false);
   });
