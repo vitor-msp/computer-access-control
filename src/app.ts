@@ -20,7 +20,7 @@ export class AppController {
   }
 
   database(): void {
-    mongoose.connect("mongodb://localhost:27017/computer-access-control", {
+    mongoose.connect("mongodb://mongo:27017/computer-access-control", {
       // useNewUrlParser: true
     }, () => {
       console.log("Connected to MongoDB!")
