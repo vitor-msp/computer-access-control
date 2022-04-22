@@ -4,7 +4,7 @@ services:
 
   app:
     container_name: app
-    build: .
+    image: vitormsp/computer-access-control
     ports:
       - "3000:3000"
     links:
