@@ -1,8 +1,12 @@
+import { IComputer } from "../../interfaces/IComputer";
+import { IUser } from "../../interfaces/IUser";
 import { CanUserAccessComputer } from "../../model/entities/CanUserAccessComputer";
 import { Computer } from "../../model/entities/Computer";
 import { User } from "../../model/entities/User";
 import { IComputersRepository } from "../../repositories/IComputersRepository";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { ComputerFromEntity } from "../../utils/ComputerFromEntity";
+import { UserFromEntity } from "../../utils/UserFromEntity";
 import { ICanUserAccessComputerDTO } from "./ICanUserAccessComputerDTO";
 
 export class CanUserAccessComputerUseCase {
@@ -16,19 +20,26 @@ export class CanUserAccessComputerUseCase {
 
     const { userId, hostname, time } = canAccessDTO;
 
-    const user: User | undefined = await this.usersRepository.findById(userId);
-    if (!user) {
+    const userEnt: IUser | undefined = await this.usersRepository.findById(
+      userId
+    );
+    if (!userEnt) {
       throw new Error(`User not exists!`);
     }
 
-    const computer: Computer | undefined =
+    const computerEnt: IComputer | undefined =
       await this.computersRepository.findByHostname(hostname);
-    if (!computer) {
+    if (!computerEnt) {
       throw new Error(`Computer not exists!`);
     }
 
-    const timeToTest = new Date()
-    timeToTest.setTime(time)
+    const user: User = UserFromEntity.of(userEnt);
+
+    const computer: Computer = ComputerFromEntity.of(computerEnt);
+
+    const timeToTest = new Date();
+    timeToTest.setTime(time);
+
     canAccess = CanUserAccessComputer.test(user, computer, timeToTest);
 
     return canAccess;

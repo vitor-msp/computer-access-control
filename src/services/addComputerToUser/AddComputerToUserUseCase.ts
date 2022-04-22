@@ -36,6 +36,6 @@ export class AddComputerToUserUseCase {
 
     user.addComputer(computer);
 
-    this.usersRepository.update(user);
+    await this.usersRepository.update(user);
   }
 }

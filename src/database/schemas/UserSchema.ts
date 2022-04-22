@@ -7,6 +7,13 @@ export interface IUserModel extends IUser, Document {
   id?: any;
 }
 
+const HostnameSchema = new Schema({
+  hostname: {
+    type: String,
+    required: true,
+  },
+});
+
 export const UserSchema = new Schema(
   {
     id: {
@@ -18,7 +25,7 @@ export const UserSchema = new Schema(
       required: true,
     },
     computers: {
-      type: [Schema.Types.ObjectId],
+      type: [HostnameSchema],
       required: false,
     },
     weeklyJourney: {

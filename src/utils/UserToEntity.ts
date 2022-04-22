@@ -1,3 +1,4 @@
+import { IHostname } from "../interfaces/IHostname";
 import { IDailyJourney } from "../interfaces/IDailyJourney";
 import { IUser } from "../interfaces/IUser";
 import { Computer } from "../model/entities/Computer";
@@ -5,7 +6,7 @@ import { User } from "../model/entities/User";
 
 export abstract class UserToEntity {
   public static of(user: User): IUser {
-    const computers: string[] = UserToEntity.getComputers(user);
+    const computers: IHostname[] = UserToEntity.getComputers(user);
 
     const weeklyJourney = UserToEntity.getWeeklyJourney(user);
 
@@ -19,16 +20,19 @@ export abstract class UserToEntity {
     return userEntity;
   }
 
-  private static getComputers(user: User): string[] {
+  private static getComputers(user: User): IHostname[] {
     const computers: Computer[] = user.getComputers();
     if (!computers || computers.length === 0) return [];
 
-    let computersEnt: string[] = [];
+    let computersEnt: IHostname[] = [];
 
     for (const computer of computers) {
-      const computerId: string | undefined = computer.getId();
-      if (!computerId) continue;
-      computersEnt.push(computerId);
+      const hostname = computer.getHostname();
+
+      const hostnameEnt: IHostname = {
+        hostname,
+      };
+      computersEnt.push(hostnameEnt);
     }
 
     return computersEnt;

@@ -1,3 +1,4 @@
+import { IUser } from "../../interfaces/IUser";
 import { User } from "../../model/entities/User";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { IAddUserDTO } from "./IAddUserDTO";
@@ -9,7 +10,7 @@ export class AddUserUseCase {
     const { id, name } = userDTO;
 
     if (id) {
-      const userThatExists: User | undefined =
+      const userThatExists: IUser | undefined =
         await this.usersRepository.findById(id!);
 
       if (userThatExists) {

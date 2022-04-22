@@ -9,17 +9,11 @@ import { IComputersRepository } from "../IComputersRepository";
 
 class ComputersRepositoryMongo implements IComputersRepository {
   async findByHostname(hostname: string): Promise<IComputer | undefined> {
-    const computerModel: IComputerModel | null = await ComputerModel.findOne({
+    const computerEnt: IComputer | null = await ComputerModel.findOne({
       hostname,
     });
 
-    if (!computerModel) return undefined;
-
-    const computerEnt: IComputer | null = {
-      id: computerModel._id,
-      hostname: computerModel.hostname,
-      department: computerModel.department,
-    };
+    if (!computerEnt) return undefined;
 
     return computerEnt;
   }

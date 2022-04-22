@@ -29,6 +29,6 @@ export class SetWeeklyJourneyToUserUseCase {
 
     user.setWeeklyJourney(journeyToUser);
 
-    this.usersRepository.update(user);
+    await this.usersRepository.update(user);
   }
 }

@@ -1,3 +1,4 @@
+import { IComputer } from "../../interfaces/IComputer";
 import { Computer } from "../../model/entities/Computer";
 import { IComputersRepository } from "../../repositories/IComputersRepository";
 import { ConvertDepartment } from "../../utils/ConvertDepartment";
@@ -8,7 +9,7 @@ export class AddComputerUseCase {
 
   async execute(computerDTO: IAddComputerDTO): Promise<void> {
     const { hostname, department } = computerDTO;
-    const computerThatExists: Computer | undefined = await this.computersRepository.findByHostname(
+    const computerThatExists: IComputer | undefined = await this.computersRepository.findByHostname(
       hostname
     );
 
