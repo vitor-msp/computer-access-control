@@ -15,7 +15,9 @@ cd computer-access-control
 ```
 
 3. Executar o docker-compose
+
 Obs.1: a porta 3000 da sua máquina deve estar liberada
+
 Obs.2: será criada a pasta 'data' que terá os dados do MongoDB
 ```
 docker-compose up -d
